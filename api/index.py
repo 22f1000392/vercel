@@ -19,7 +19,9 @@ app.add_middleware(
     allow_methods=["POST"],
     allow_headers=["*"],
 )
-
+@app.get("/")
+async def health():
+    return { "status":"ok" , "message":"deploy successful"}
 @app.post("/")
 async def analytics(request: Request):
     body = await request.json()
