@@ -22,7 +22,7 @@ app.add_middleware(
 @app.get("/")
 async def health():
     return { "status":"ok" , "message":"deploy successful"}
-@app.post("/")
+@app.post("/api/latency")
 async def analytics(request: Request):
     body = await request.json()
     regions = body.get("regions", [])
